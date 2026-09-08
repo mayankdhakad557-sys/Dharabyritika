@@ -16,6 +16,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
+ /* Compact Page Layout - Reduces Scrolling */
+section {
+  padding: 2.5rem 1rem !important; /* सेक्शंस के बीच का गैप कम करने के लिए */
+}
+
+.hero-section, #home {
+  padding-top: 5rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.section-title {
+  font-size: 1.6rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.home-img-wrapper {
+  max-width: 280px !important; /* होम की फोटो का साइज छोटा करने के लिए */
+  margin: 0 auto !important;
+}
+
+.product-grid, .gallery-grid, .insta-grid {
+  gap: 1rem !important; /* ग्रिड के बीच की दूरी कम करने के लिए */
+}
+
+.card, .gallery-item {
+  margin-bottom: 0.5rem !important;
+}
+
 :root{--bg-blush:#FAF0E6;--bg-ivory:#FFFDF9;--bg-beige:#F5EBE6;--text-dark:#2C221E;--text-muted:#6E5D55;--accent-gold:#C5A059;--whatsapp-green:#25D366;--whatsapp-hover:#1EBE57;--insta-gradient:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);--white:#FFF;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Plus Jakarta Sans',sans-serif;--transition:all .3s ease;--shadow-soft:0 10px 30px rgba(44,34,30,.05);--shadow-card:0 4px 20px rgba(0,0,0,.04)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
