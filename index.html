@@ -3,91 +3,255 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhara by Ritika | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Dhara by Ritika | Luxury Boutique & Handcrafted Art</title>
+
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background-color: #fdf8f5; color: #333; }
-    header { background: #ffffff; padding: 15px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    header img { height: 50px; width: auto; }
-    .hero { text-align: center; padding: 40px 20px 20px; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #2c2c2c; margin-bottom: 8px; }
-    .hero p { font-size: 0.95rem; color: #777; max-width: 500px; margin: 0 auto; }
-    .categories-container { padding: 30px 20px 50px; max-width: 1000px; margin: 0 auto; }
-    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .category-card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-decoration: none; color: inherit; transition: transform 0.3s; border: 1px solid #f0e6e0; display: block; }
-    .category-card:hover { transform: translateY(-5px); }
-    .card-img-box { height: 260px; width: 100%; overflow: hidden; }
-    .card-img-box img { width: 100%; height: 100%; object-fit: cover; }
-    .card-info { padding: 20px; text-align: center; }
-    .card-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 6px; }
-    .card-info p { font-size: 0.85rem; color: #666; margin-bottom: 12px; }
-    .btn-explore { font-size: 0.85rem; font-weight: 600; color: #c88a68; text-transform: uppercase; }
-    footer { text-align: center; padding: 25px; background: #ffffff; border-top: 1px solid #eaeaea; font-size: 0.85rem; color: #888; }
+    :root {
+      --bg-light: #faf8f5;
+      --card-bg: #ffffff;
+      --primary-dark: #1f1a17;
+      --gold-accent: #c49a45;
+      --gold-hover: #a37d32;
+      --rose-tint: #f4ece6;
+      --text-muted: #6e6a67;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.06);
+      --shadow-hover: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg-light); color: var(--primary-dark); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
+
+    /* Top Announcement Bar */
+    .top-bar { background: var(--primary-dark); color: var(--gold-accent); text-align: center; padding: 8px 15px; font-size: 0.8rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* Header & Navigation */
+    header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.04); }
+    .logo-box img { height: 52px; width: auto; object-fit: contain; }
+    
+    .nav-btn { text-decoration: none; background: linear-gradient(135deg, var(--gold-accent), #d4af37); color: #fff; padding: 10px 22px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(196, 154, 69, 0.3); }
+    .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(196, 154, 69, 0.4); }
+
+    /* Hero Section */
+    .hero { text-align: center; padding: 80px 20px 60px; background: radial-gradient(circle, #ffffff 0%, var(--rose-tint) 100%); position: relative; overflow: hidden; }
+    .hero-subtitle { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold-accent); font-weight: 600; margin-bottom: 12px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 700; color: var(--primary-dark); line-height: 1.15; margin-bottom: 18px; }
+    .hero p { font-size: 1.05rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 30px; font-weight: 300; }
+    
+    .hero-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--primary-dark); color: #fff; text-decoration: none; padding: 14px 35px; border-radius: 35px; font-weight: 500; font-size: 0.95rem; letter-spacing: 1px; transition: all 0.3s ease; }
+    .hero-cta:hover { background: var(--gold-accent); transform: translateY(-3px); color: #fff; }
+
+    /* Section Styling */
+    .section-padding { padding: 70px 6%; max-width: 1300px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-dark); }
+    .section-header p { font-size: 0.95rem; color: var(--text-muted); margin-top: 6px; }
+
+    /* Main Categories Grid */
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+    
+    .category-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-soft); text-decoration: none; color: inherit; transition: all 0.4s ease; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.03); }
+    .category-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+    
+    .card-image-wrapper { height: 360px; width: 100%; overflow: hidden; position: relative; }
+    .card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+    .category-card:hover .card-image-wrapper img { transform: scale(1.08); }
+    
+    .card-tag { position: absolute; top: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(5px); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--primary-dark); }
+
+    .card-content { padding: 30px 25px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .card-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
+    .card-content p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 22px; font-weight: 300; }
+    
+    .explore-link { font-size: 0.85rem; font-weight: 600; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 1.5px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: gap 0.3s ease; }
+    .category-card:hover .explore-link { gap: 14px; color: var(--gold-hover); }
+
+    /* Trust Highlights / Services */
+    .highlights-bg { background: #ffffff; border-top: 1px solid #f0ebe5; border-bottom: 1px solid #f0ebe5; }
+    .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; }
+    .highlight-item { padding: 20px; }
+    .highlight-item i { font-size: 2.2rem; color: var(--gold-accent); margin-bottom: 15px; }
+    .highlight-item h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+    .highlight-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Testimonials Section */
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .testimonial-card { background: var(--rose-tint); padding: 30px; border-radius: 16px; position: relative; }
+    .stars { color: var(--gold-accent); font-size: 0.85rem; margin-bottom: 12px; }
+    .testimonial-card p { font-size: 0.9rem; color: #4a4643; font-style: italic; margin-bottom: 15px; }
+    .client-name { font-weight: 600; font-size: 0.85rem; color: var(--primary-dark); }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); z-index: 10000; text-decoration: none; transition: transform 0.3s ease; }
+    .whatsapp-btn:hover { transform: scale(1.1); }
+
+    /* Footer */
+    footer { background: var(--primary-dark); color: #b5afaa; padding: 50px 6% 30px; text-align: center; font-size: 0.85rem; }
+    .footer-logo img { height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+    .footer-links { margin: 20px 0; display: flex; justify-content: center; gap: 20px; }
+    .footer-links a { color: #d5cfc9; text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--gold-accent); }
+    .copyright { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.78rem; }
   </style>
 </head>
 <body>
 
-  <!-- Header Section with Dharalogo2.jpg -->
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    ✨ Worldwide & Pan-India Shipping Available | Custom Orders Open ✨
+  </div>
+
+  <!-- Header -->
   <header>
-    <a href="index.html">
+    <div class="logo-box">
       <img src="Dharalogo2.jpg" alt="Dhara by Ritika Logo">
+    </div>
+    <a href="https://wa.me/919630633836?text=Hi%20Ritika,%20I%20want%20to%20enquire%20about%20your%20collection!" class="nav-btn" target="_blank">
+      <i class="fab fa-whatsapp"></i> Order Custom Art
     </a>
   </header>
 
-  <!-- Main Title -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Welcome to Dhara by Ritika</h1>
-    <p>Select a category below to explore our exclusive handcrafted collections</p>
+    <span class="hero-subtitle">Bespoke Couture & Art</span>
+    <h1>Preserving Memories, <br>Crafting Elegance</h1>
+    <p>Exclusive Handcrafted Resin Keepsakes, Personalised Embroidery Hoops & Designer Boutique Wear for your Special Moments.</p>
+    <a href="#collections" class="hero-cta">
+      EXPLORE COLLECTIONS <i class="fas fa-arrow-down"></i>
+    </a>
   </section>
 
-  <!-- 3 Categories Grid -->
-  <section class="categories-container">
+  <!-- Categories Section -->
+  <section id="collections" class="section-padding">
+    <div class="section-header">
+      <h2>Curated Categories</h2>
+      <p>Select a collection to explore custom designs and place your order</p>
+    </div>
+
     <div class="category-grid">
       
-      <!-- Category 1: Dresses -->
+      <!-- Card 1: Boutique Wear -->
       <a href="dresses.html" class="category-card">
-        <div class="card-img-box">
-          <img src="Dress23.jpg" alt="Dresses Collection">
+        <div class="card-image-wrapper">
+          <span class="card-tag">Boutique</span>
+          <img src="Dress23.jpg" alt="Boutique Dresses Collection">
         </div>
-        <div class="card-info">
-          <h3>Boutique Dresses</h3>
-          <p>Luxury Ethnic & Custom Wear</p>
-          <span class="btn-explore">Explore Collection <i class="fas fa-arrow-right"></i></span>
+        <div class="card-content">
+          <div>
+            <h3>Boutique Wear</h3>
+            <p>Custom-fit designer gowns, royal sarees, and tailored bridal outfits made for special occasions.</p>
+          </div>
+          <span class="explore-link">Browse Outfits <i class="fas fa-arrow-right"></i></span>
         </div>
       </a>
 
-      <!-- Category 2: Resin Art -->
+      <!-- Card 2: Resin Art -->
       <a href="resin.html" class="category-card">
-        <div class="card-img-box">
-          <img src="resin-art.jpg" alt="Resin Art Collection">
+        <div class="card-image-wrapper">
+          <span class="card-tag">Keepsakes</span>
+          <img src="resin-art.jpg" alt="Resin Art Keepsakes">
         </div>
-        <div class="card-info">
-          <h3>Resin Art Keepsakes</h3>
-          <p>Preserved Wedding Flowers & Art</p>
-          <span class="btn-explore">Explore Collection <i class="fas fa-arrow-right"></i></span>
+        <div class="card-content">
+          <div>
+            <h3>Resin Art Keepsakes</h3>
+            <p>Preserve your wedding varmala, special flowers, and memories forever in crystal resin frames & clocks.</p>
+          </div>
+          <span class="explore-link">Browse Keepsakes <i class="fas fa-arrow-right"></i></span>
         </div>
       </a>
 
-      <!-- Category 3: Embroidery -->
+      <!-- Card 3: Embroidery -->
       <a href="embroidery.html" class="category-card">
-        <div class="card-img-box">
-          <img src="Embroidery1.jpg" alt="Embroidery Collection">
+        <div class="card-image-wrapper">
+          <span class="card-tag">Handmade</span>
+          <img src="Embroidery1.jpg" alt="Embroidery Artwork">
         </div>
-        <div class="card-info">
-          <h3>Embroidery Artwork</h3>
-          <p>Hand-crafted Custom Hoop Art</p>
-          <span class="btn-explore">Explore Collection <i class="fas fa-arrow-right"></i></span>
+        <div class="card-content">
+          <div>
+            <h3>Hand Embroidery</h3>
+            <p>Personalized hoop artwork, custom couple portraits, and aesthetic embroidered wall decor.</p>
+          </div>
+          <span class="explore-link">Browse Hoop Art <i class="fas fa-arrow-right"></i></span>
         </div>
       </a>
 
     </div>
   </section>
 
+  <!-- Highlights / Features -->
+  <div class="highlights-bg">
+    <div class="section-padding highlights-grid">
+      <div class="highlight-item">
+        <i class="fas fa-gem"></i>
+        <h4>100% Handcrafted</h4>
+        <p>Every piece is uniquely designed with meticulous attention to detail.</p>
+      </div>
+      <div class="highlight-item">
+        <i class="fas fa-heart"></i>
+        <h4>Custom Preservation</h4>
+        <p>Turn your real wedding flowers into everlasting memory art.</p>
+      </div>
+      <div class="highlight-item">
+        <i class="fas fa-box-open"></i>
+        <h4>Safe & Premium Packaging</h4>
+        <p>Delivered safely to your doorstep across India with extreme care.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client Reviews -->
+  <section class="section-padding">
+    <div class="section-header">
+      <h2>Loved by Our Clients</h2>
+      <p>Real stories from our happy customers</p>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The wedding varmala frame turned out so gorgeous! Ritika preserved every flower perfectly. It's now the best piece in my living room."</p>
+        <div class="client-name">- Sakshi Sharma</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Ordered a custom embroidery hoop for my anniversary. The stitching detail and portrait work were absolutely breathtaking!"</p>
+        <div class="client-name">- Priya Verma</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The gown fitting and fabric quality were top-notch. Loved how responsive they were on WhatsApp throughout the process."</p>
+        <div class="client-name">- Ananya Patel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/919630633836?text=Hi%20Ritika,%20I%20visited%20your%20website%20and%20want%20to%20place%20an%20order!" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
   <!-- Footer -->
   <footer>
-    <p>© 2026 Dhara by Ritika. All Rights Reserved.</p>
+    <div class="footer-logo">
+      <img src="Dharalogo2.jpg" alt="Dhara by Ritika Logo">
+    </div>
+    <p>Dhara by Ritika - Handcrafted Keepsakes & Designer Boutique Wear</p>
+    
+    <div class="footer-links">
+      <a href="dresses.html">Boutique Wear</a> • 
+      <a href="resin.html">Resin Keepsakes</a> • 
+      <a href="embroidery.html">Hand Embroidery</a>
+    </div>
+
+    <div class="copyright">
+      © 2026 Dhara by Ritika. All Rights Reserved.
+    </div>
   </footer>
 
 </body>
