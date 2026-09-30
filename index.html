@@ -18,6 +18,7 @@
       --gold-hover: #a37d32;
       --rose-tint: #f4ece6;
       --text-muted: #6e6a67;
+      --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
       --shadow-soft: 0 10px 30px rgba(0,0,0,0.06);
       --shadow-hover: 0 20px 40px rgba(0,0,0,0.12);
     }
@@ -33,7 +34,12 @@
     header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.04); }
     .logo-box img { height: 52px; width: auto; object-fit: contain; }
     
-    .nav-btn { text-decoration: none; background: linear-gradient(135deg, var(--gold-accent), #d4af37); color: #fff; padding: 10px 22px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(196, 154, 69, 0.3); }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    
+    .insta-head-btn { text-decoration: none; background: var(--insta-gradient); color: #fff; padding: 9px 18px; border-radius: 30px; font-size: 0.82rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s ease; }
+    .insta-head-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+
+    .nav-btn { text-decoration: none; background: linear-gradient(135deg, var(--gold-accent), #d4af37); color: #fff; padding: 9px 20px; border-radius: 30px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(196, 154, 69, 0.3); }
     .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(196, 154, 69, 0.4); }
 
     /* Hero Section */
@@ -70,7 +76,15 @@
     .explore-link { font-size: 0.85rem; font-weight: 600; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 1.5px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: gap 0.3s ease; }
     .category-card:hover .explore-link { gap: 14px; color: var(--gold-hover); }
 
-    /* Trust Highlights / Services */
+    /* Instagram Banner Section */
+    .insta-section { background: var(--card-bg); border-radius: 24px; padding: 45px 30px; text-align: center; box-shadow: var(--shadow-soft); margin: 30px auto 60px; max-width: 1000px; border: 1px solid rgba(0,0,0,0.04); }
+    .insta-icon-box { font-size: 3rem; background: var(--insta-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+    .insta-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+    .insta-section p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; }
+    .insta-follow-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--insta-gradient); color: #ffffff; text-decoration: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(220, 39, 67, 0.25); }
+    .insta-follow-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(220, 39, 67, 0.35); }
+
+    /* Highlights / Features */
     .highlights-bg { background: #ffffff; border-top: 1px solid #f0ebe5; border-bottom: 1px solid #f0ebe5; }
     .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; }
     .highlight-item { padding: 20px; }
@@ -92,7 +106,10 @@
     /* Footer */
     footer { background: var(--primary-dark); color: #b5afaa; padding: 50px 6% 30px; text-align: center; font-size: 0.85rem; }
     .footer-logo img { height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px; }
-    .footer-links { margin: 20px 0; display: flex; justify-content: center; gap: 20px; }
+    .footer-social { margin: 20px 0; }
+    .footer-social a { color: #ffffff; font-size: 1.4rem; margin: 0 10px; transition: color 0.3s; }
+    .footer-social a:hover { color: var(--gold-accent); }
+    .footer-links { margin: 15px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
     .footer-links a { color: #d5cfc9; text-decoration: none; transition: color 0.3s; }
     .footer-links a:hover { color: var(--gold-accent); }
     .copyright { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.78rem; }
@@ -110,9 +127,16 @@
     <div class="logo-box">
       <img src="Dharalogo2.jpg" alt="Dhara by Ritika Logo">
     </div>
-    <a href="https://wa.me/919630633836?text=Hi%20Ritika,%20I%20want%20to%20enquire%20about%20your%20collection!" class="nav-btn" target="_blank">
-      <i class="fab fa-whatsapp"></i> Order Custom Art
-    </a>
+    <div class="header-actions">
+      <!-- Instagram Header Button -->
+      <a href="https://www.instagram.com/dhara_by_ritika/" class="insta-head-btn" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <!-- WhatsApp Header Button -->
+      <a href="https://wa.me/919630633836?text=Hi%20Ritika,%20I%20want%20to%20enquire%20about%20your%20collection!" class="nav-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i> Order
+      </a>
+    </div>
   </header>
 
   <!-- Hero Section -->
@@ -153,7 +177,7 @@
       <a href="resin.html" class="category-card">
         <div class="card-image-wrapper">
           <span class="card-tag">Keepsakes</span>
-          <img src="92e0007a4c52a43f3b2a536e2fd2a59e.jpg" alt="Resin Art Keepsakes">
+          <img src="resin-art.jpg" alt="Resin Art Keepsakes">
         </div>
         <div class="card-content">
           <div>
@@ -181,6 +205,20 @@
 
     </div>
   </section>
+
+  <!-- Instagram Banner Section -->
+  <div class="section-padding" style="padding-top: 0; padding-bottom: 40px;">
+    <div class="insta-section">
+      <div class="insta-icon-box">
+        <i class="fab fa-instagram"></i>
+      </div>
+      <h3>Join Us On Instagram</h3>
+      <p>Follow <strong>@dhara_by_ritika</strong> for daily behind-the-scenes, customer custom orders, and new collection launches!</p>
+      <a href="https://www.instagram.com/dhara_by_ritika/" class="insta-follow-btn" target="_blank">
+        <i class="fab fa-instagram"></i> Follow @dhara_by_ritika
+      </a>
+    </div>
+  </div>
 
   <!-- Highlights / Features -->
   <div class="highlights-bg">
@@ -242,6 +280,12 @@
       <img src="Dharalogo2.jpg" alt="Dhara by Ritika Logo">
     </div>
     <p>Dhara by Ritika - Handcrafted Keepsakes & Designer Boutique Wear</p>
+
+    <!-- Social Links in Footer -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/dhara_by_ritika/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/919630633836" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
     
     <div class="footer-links">
       <a href="dresses.html">Boutique Wear</a> • 
